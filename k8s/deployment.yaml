@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 2048-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "2048"
+  template:
+    metadata:
+      labels:
+        app: "2048"
+    spec:
+      containers:
+      - name: 2048-container
+        image: 2048-game:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
